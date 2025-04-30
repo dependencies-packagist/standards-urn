@@ -1,0 +1,33 @@
+{
+    "name": "standards/urn",
+    "description": "A simple library to work with Uniform Resource Names (URNs).",
+    "keywords": [
+        "Uniform Resource Names",
+        "URNs",
+        "IETF"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/dependencies-packagist/standards-urn",
+    "authors": [
+        {
+            "name": "jundayw",
+            "email": "jundayw@126.com"
+        }
+    ],
+    "require": {
+        "php": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Standards\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
