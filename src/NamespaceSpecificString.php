@@ -1,16 +1,16 @@
 <?php
 
-namespace Standards;
+namespace Standards\URN;
 
 use Stringable;
 
-class NSS implements Stringable
+class NamespaceSpecificString implements Stringable
 {
     protected array $slots = [];
 
-    public function __construct(string $nss)
+    public function __construct(string $namespaceSpecificString)
     {
-        $this->slots = explode(':', $nss);
+        $this->slots = explode(':', $namespaceSpecificString);
     }
 
     public static function build(

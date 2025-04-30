@@ -19,14 +19,14 @@ composer require standards/urn
 ## Usage
 
 ```php
-use Standards\NSS;
-use Standards\URN;
+use Standards\URN\NamespaceSpecificString;
+use Standards\URN\UniformResourceName;
 
-$urn = URN::parse('urn:ietf:params:oauth:jwk-thumbprint:sha-256:NzbLsXh8...');
-var_dump($urn->getNID()); // ietf
-var_dump($urn->getNSS()); // params:oauth:jwk-thumbprint:sha-256:NzbLsXh8...
+$urn = UniformResourceName::parse('urn:ietf:params:oauth:jwk-thumbprint:sha-256:NzbLsXh8...');
+var_dump($urn->getNamespaceIdentifier());     // ietf
+var_dump($urn->getNamespaceSpecificString()); // params:oauth:jwk-thumbprint:sha-256:NzbLsXh8...
 
-$nss = NSS::parse($urn->getNSS());
+$nss = NamespaceSpecificString::parse($urn->getNamespaceSpecificString());
 var_dump($nss->getNamespace());    // params
 var_dump($nss->getSubNamespace()); // oauth
 var_dump($nss->getResource());     // jwk-thumbprint
@@ -34,11 +34,11 @@ var_dump($nss->getType());         // sha-256
 var_dump($nss->getValue());        // NzbLsXh8...
 
 
-$nss = NSS::build(
+$nss = NamespaceSpecificString::build(
     value: 'NzbLsXh8...'
 );
-$nss = NSS::build()->setValue('NzbLsXh8...');
-$urn = URN::build('ietf', $nss);
+$nss = NamespaceSpecificString::build()->setValue('NzbLsXh8...');
+$urn = UniformResourceName::build('ietf', $nss);
 var_dump($urn->toString()); // urn:ietf:params:oauth:jwk-thumbprint:sha-256:NzbLsXh8...
 ```
 
